@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paul Henriot - Page professionnelle</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        /* Style général */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Georgia', serif;
+            color: #003366;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        a {
+            color: #003366;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #1e90ff;
+        }
+
+        /* Header */
+        header {
+            background-color: #003366;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .profile img {
+            width: 150px;
+            border-radius: 50%;
+            border: 3px solid #fff;
+        }
+
+        .profile h1 {
+            font-size: 2rem;
+        }
+
+        /* Navigation */
+        nav a {
+            display: inline-block;
+            margin: 0 10px;
+            transition: transform 0.3s ease;
+        }
+
+        nav a:hover {
+            transform: scale(1.1);
+        }
+
+        nav img {
+            width: 30px;
+            filter: invert(1);
+            transition: filter 0.3s ease;
+        }
+
+        nav img:hover {
+            filter: invert(0);
+        }
+
+        /* Main content */
+        main {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section {
+            background-color: #ffffff;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            margin-bottom: 1.5rem;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin-bottom: 1rem;
+        }
+
+        .download-cv {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: #003366;
+            color: white;
+            border-radius: 4px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .download-cv:hover {
+            background-color: #1e90ff;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #003366;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="profile">
+        <img src="profile.jpg" alt="Paul Henriot" class="profile-image">
+        <h1>Paul Henriot</h1>
+    </div>
+    <nav>
+        <a href="https://www.researchgate.net/profile/Paul-Henriot" target="_blank"><img src="researchgate.jpg" alt="ResearchGate"></a>
+        <a href="https://orcid.org/0000-0002-9410-0867" target="_blank"><img src="orcid.jpg" alt="ORCID"></a>
+        <a href="https://scholar.google.com/citations?user=Zy69Pt4AAAAJ&hl=fr" target="_blank"><img src="google-scholar.jpg" alt="Google Scholar"></a>
+        <a href="https://twitter.com/HenriotPaul" target="_blank"><img src="twitter.jpg" alt="Twitter"></a>
+        <a href="https://github.com/phenriot" target="_blank"><img src="github-logo.jpg" alt="GitHub"></a>
+    </nav>
+</header>
+
+<main>
+    <section class="section contact">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:paul.henriot@protonmail.com">paul.henriot@protonmail.com</a></p>
+    </section>
+
+    <section class="section research-interest">
+        <h2>Research Interest</h2>
+        <p>My research is mainly focused on the use of mathematical tools to better understand the transmission of pathogens in humans and animals as well as their diffusion in the environment with a One Health approach.</p>
+    </section>
+
+    <section class="section cv">
+        <h2>Curriculum Vitae</h2>
+        <h3>Education</h3>
+        <ul>
+            <li><b>2020-2023:</b> PhD in Public Health, Conservatoire national des arts et métiers - HESAM Université, Paris, France</li>
+            <li><b>2017-2019:</b> Master's degree in ecological modelling, Université de Rennes 1, Rennes, France</li>
+            <li><b>2014-2017:</b> Bachelor's degree in economic analysis, Université Paris II - Panthéon-Assas, Paris, France</li>
+        </ul>
+
+        <h3>Research Experience</h3>
+        <ul>
+            <li><b>Sept. 2024 - Sept. 2026:</b> Research fellow in epidemiology, INRAE, France</li>
+            <li><b>Sept. 2020 - Nov. 2023:</b> PhD in Public Health, Conservatoire national des arts et métiers, Paris, France</li>
+            <li><b>Sept. 2019 - Sept. 2020:</b> Modelling engineer, Inserm - Institut Pasteur, Paris, France</li>
+        </ul>
+        <a href="English_CV.pdf" class="download-cv" target="_blank">Download detailed CV</a>
+    </section>
+
+    <section class="section publications">
+        <h2>Publications</h2>
+        <ul>
+            <li><b>Moutet L., Leclerc Q., Layan M., Ait Bouziad K., Dab W., Henriot P., et al.</b> - Teleworking and health in an epidemic context (2024). <a href="https://www.medrxiv.org/content/10.1101/2024.07.18.24310632v1" target="_blank">(link)</a></li>
+            <li><b>Henriot P., Buelow E., Petit F., Ploy M.C., Dagot C., Opatowski L.</b> - Modelling the impact of urban and hospital wastewaters eco-exposomes on the antibiotic-resistance dynamics (2024). <a href="https://doi.org/10.1016/j.scitotenv.2024.171643" target="_blank">(link)</a></li>
+        </ul>
+    </section>
+
+    <section class="section r-packages">
+        <h2>R Packages</h2>
+        <ul>
+            <li><a href="https://github.com/phenriot/BloodPaTH" target="_blank"><b>BloodPaTH</b></a> - Bloodborne Pathogens Transmission in Hospitals.</li>
+        </ul>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2025 Paul Henriot. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
