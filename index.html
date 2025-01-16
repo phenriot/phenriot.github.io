@@ -5,8 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paul Henriot - Page professionnelle</title>
     <link rel="stylesheet" href="main.css">
+    <style>
+        /* Inversion des couleurs des icônes */
+        nav img {
+            filter: invert(1); /* Inverse les couleurs */
+            transition: filter 0.3s ease-in-out; /* Ajoute un effet de transition */
+        }
+
+        nav img:hover {
+            filter: invert(0); /* Rétablit la couleur originale au survol */
+        }
+    </style>
 </head>
-<body>
+<body> 
 
 <header>
     <div class="profile">
