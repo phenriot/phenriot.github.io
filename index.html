@@ -15,6 +15,25 @@
         nav img:hover {
             filter: invert(0); /* Rétablit la couleur originale au survol */
         }
+
+          /* Empêche l'inversion pour l'icône du drapeau anglais */
+        .language-switch img {
+            filter: none; /* Pas d'inversion pour cette icône */
+        }
+
+        /* Placer le drapeau anglais tout à gauche sous la ligne orange */
+        .language-switch {
+            position: absolute;
+            top: 10px; /* Ajuste cette valeur selon l'espacement désiré */
+            left: 10px; /* Positionne à gauche */
+            z-index: 10; /* Met l'icône au-dessus des autres éléments */
+        }
+
+        .language-switch img {
+            width: 30px; /* Taille de l'icône du drapeau */
+            height: auto;
+        }
+        
     </style>
 </head>
 <body> 
