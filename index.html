@@ -86,6 +86,10 @@
 
     <section class="publications">
         <h2>Publications</h2>
+
+        <!-- Conteneur pour afficher les publications dynamiques depuis l'API HAL -->
+    <div id="halPublications"></div>
+        
         <ul>
             <li><b>Moutet L., Leclerc Q., Layan M., Ait Bouziad K., Dab W., Henriot P., et al.</b> - Teleworking and health in an epidemic context (2024). <a href="https://www.medrxiv.org/content/10.1101/2024.07.18.24310632v1" target="_blank">(link)</a></li>
             <li><b>Henriot P., Buelow E., Petit F., Ploy M.C., Dagot C., Opatowski L.</b> - Modelling the impact of urban and hospital wastewaters eco-exposomes on the antibiotic-resistance dynamics (2024). <a href="https://doi.org/10.1016/j.scitotenv.2024.171643" target="_blank">(link)</a></li>
@@ -108,6 +112,51 @@
 <footer>
     <p>&copy; 2025 Paul Henriot. All rights reserved.</p>
 </footer>
+
+    <script>
+    // Fonction pour récupérer les publications depuis l'API HAL
+    function fetchHALPublications() {
+        const query = 'Henriot';  // Vous pouvez ajuster la requête pour cibler un auteur spécifique ou un autre critère
+        const url = `https://api.archives-ouvertes.fr/hal/v1/search?q=${query}&rows=5`; // Limite à 5 résultats
+
+        // Requête fetch pour récupérer les données depuis l'API HAL
+        fetch(url)
+            .then(response => response.json())  // Conversion de la réponse en JSON
+            .then(data => {
+                // Traitement des données et affichage des résultats
+                displayHALResults(data);
+            })
+            .catch(error => {
+                console.error('Erreur de récupération des données :', error);
+                document.getElementById('halPublications').innerHTML = '<p>Impossible de charger les publications depuis HAL.</p>';
+            });
+    }
+
+    // Fonction pour afficher les résultats des publications dans la page
+    function displayHALResults(data) {
+        const resultsContainer = document.getElementById('halPublications');
+        resultsContainer.innerHTML = '';  // Réinitialiser le contenu
+
+        // Vérifier s'il y a des résultats
+        if (data && data.hits && data.hits.hits.length > 0) {
+            data.hits.hits.forEach(publication => {
+                const publicationElement = document.createElement('div');
+                publicationElement.innerHTML = `
+                    <p><b>${publication.title}</b></p>
+                    <p>Auteur(s) : ${publication.authors.join(', ')}</p>
+                    <p>Date de publication : ${publication.date}</p>
+                    <a href="${publication.uri}" target="_blank">Voir la publication sur HAL</a>
+                `;
+                resultsContainer.appendChild(publicationElement);
+            });
+        } else {
+            resultsContainer.innerHTML = '<p>Aucune publication trouvée.</p>';
+        }
+    }
+
+    // Appel de la fonction pour récupérer les publications dès que la page se charge
+    window.onload = fetchHALPublications;
+</script>
 
 </body>
 </html>
