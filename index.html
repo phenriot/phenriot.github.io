@@ -117,7 +117,7 @@
     // Fonction pour récupérer les publications depuis l'API HAL
     function fetchHALPublications() {
         const query = 'Henriot';  // Vous pouvez ajuster la requête pour cibler un auteur spécifique ou un autre critère
-        const url = `https://api.archives-ouvertes.fr/hal/v1/search?q=${query}&rows=5`; // Limite à 5 résultats
+        const url = `https://hal.science/search/index/q/*/authIdPerson_i/1181765`; // Limite à 5 résultats
 
         // Requête fetch pour récupérer les données depuis l'API HAL
         fetch(url)
