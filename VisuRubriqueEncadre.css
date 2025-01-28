@@ -1,0 +1,45 @@
+/* Style général pour le conteneur des publications */
+.archivesouvertes_embed {
+    border: 1px solid #ddd; /* Bordure légère autour de la boîte */
+    padding: 20px; /* Espacement interne autour du contenu */
+    margin-top: 20px; /* Espacement au-dessus de la boîte */
+    background-color: #f9f9f9; /* Fond léger pour le contenu */
+    border-radius: 8px; /* Coins arrondis */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre légère pour un effet d'élévation */
+}
+
+/* Titre des publications */
+.archivesouvertes_embed h2 {
+    font-size: 1.5em; /* Taille du titre */
+    color: #333; /* Couleur foncée pour le titre */
+    margin-bottom: 15px; /* Espacement sous le titre */
+}
+
+/* Liste des publications */
+.archivesouvertes_embed ul {
+    list-style-type: none; /* Supprimer les puces de la liste */
+    padding-left: 0; /* Retirer l'indentation */
+}
+
+/* Élément de la publication (un item de la liste) */
+.archivesouvertes_embed li {
+    margin-bottom: 15px; /* Espacement entre les publications */
+    padding: 10px; /* Padding pour chaque élément */
+    border-bottom: 1px solid #eee; /* Ligne de séparation entre les publications */
+}
+
+/* Dernière publication (sans bordure en bas) */
+.archivesouvertes_embed li:last-child {
+    border-bottom: none;
+}
+
+/* Style des liens dans les publications */
+.archivesouvertes_embed a {
+    color: #007bff; /* Couleur bleue pour les liens */
+    text-decoration: none; /* Retirer le soulignement */
+}
+
+.archivesouvertes_embed a:hover {
+    text-decoration: underline; /* Souligner les liens au survol */
+    color: #0056b3; /* Couleur bleue plus foncée au survol */
+}
