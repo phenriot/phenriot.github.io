@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Paul Henriot — Academic page</title>
+  <meta name="description" content="Researcher in computational biology / data science. Publications, software, talks, and contact." />
+
+  <!-- Favicon (optionnel) -->
+  <!-- <link rel="icon" href="/favicon.ico"> -->
+
+  <style>
+    :root{
+      --bg:#ffffff;
+      --text:#111827;     /* slate-900 */
+      --muted:#4b5563;    /* slate-600 */
+      --link:#0f766e;     /* teal-700 */
+      --border:#e5e7eb;   /* gray-200 */
+      --card:#f9fafb;     /* gray-50 */
+      --code:#0b1020;
+    }
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg:#0b1020;
+        --text:#e5e7eb;
+        --muted:#9ca3af;
+        --link:#5eead4;
+        --border:#1f2937;
+        --card:#0f172a;
+        --code:#0b1020;
+      }
+    }
+
+    html, body { height: 100%; }
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font: 16px/1.55 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+    a{ color:var(--link); text-decoration:none; }
+    a:hover{ text-decoration:underline; }
+
+    .wrap{
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 32px 20px 64px;
+    }
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:24px;
+      flex-wrap:wrap;
+      padding-bottom: 16px;
+      border-bottom:1px solid var(--border);
+      margin-bottom: 24px;
+    }
+    .id h1{
+      margin:0 0 6px 0;
+      font-size: 28px;
+      letter-spacing:-0.02em;
+    }
+    .id .tagline{
+      margin:0;
+      color:var(--muted);
+      max-width: 56ch;
+    }
+    .links{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:6px 10px;
+      border:1px solid var(--border);
+      border-radius: 999px;
+      background: transparent;
+      white-space:nowrap;
+      font-size: 14px;
+    }
+
+    nav{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    nav a{ color: var(--muted); }
+    nav a:hover{ color: var(--link); }
+
+    section{
+      margin-top: 28px;
+    }
+    h2{
+      font-size: 18px;
+      margin: 0 0 10px 0;
+    }
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px 14px;
+    }
+    .grid{
+      display:grid;
+      gap:12px;
+    }
+    @media (min-width: 720px){
+      .grid.cols-2{ grid-template-columns: 1fr 1fr; }
+    }
+
+    ul.clean{
+      list-style:none;
+      padding-left:0;
+      margin:0;
+    }
+    li.item{
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    li.item:last-child{ border-bottom:0; }
+
+    .meta{
+      color:var(--muted);
+      font-size: 14px;
+      margin-top: 2px;
+    }
+    .small{
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .kicker{
+      font-size: 13px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin: 0 0 8px 0;
+    }
+    .pill{
+      display:inline-block;
+      font-size: 12px;
+      padding: 2px 8px;
+      border:1px solid var(--border);
+      border-radius: 999px;
+      color: var(--muted);
+      margin-left: 8px;
+      vertical-align: 1px;
+    }
+
+    footer{
+      margin-top: 36px;
+      padding-top: 16px;
+      border-top:1px solid var(--border);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* Email obfuscation hint style */
+    code{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      background: rgba(125,125,125,.12);
+      padding: 2px 6px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="wrap">
+    <header>
+      <div class="id">
+        <h1>Paul Henriot</h1>
+        <p class="tagline">
+          Researcher in <strong>computational biology</strong> / <strong>data science</strong>.
+          <!-- Remplace/ajuste la phrase ci-dessus selon ton pitch -->
+        </p>
+
+        <nav aria-label="Navigation">
+          <a href="#about">About</a>
+          <a href="#news">News</a>
+          <a href="#publications">Publications</a>
+          <a href="#software">Software</a>
+          <a href="#talks">Talks/Teaching</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+
+      <div class="links" aria-label="Links">
+        <!-- Remplace les href par tes liens -->
+        <a class="chip" href="CV.pdf">CV (PDF)</a>
+        <a class="chip" href="https://scholar.google.com/" target="_blank" rel="noopener">Google Scholar</a>
+        <a class="chip" href="https://orcid.org/" target="_blank" rel="noopener">ORCID</a>
+        <a class="chip" href="https://github.com/phenriot" target="_blank" rel="noopener">GitHub</a>
+        <a class="chip" href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="chip" href="https://x.com/" target="_blank" rel="noopener">X / Twitter</a>
+      </div>
+    </header>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <h2>About</h2>
+      <div class="card">
+        <p style="margin:0 0 10px 0;">
+          <!-- Mets ici 3–5 lignes concrètes : thème, méthodes, données, applications -->
+          I work on <strong>(topic A)</strong>, <strong>(topic B)</strong>, and <strong>(topic C)</strong>,
+          with an emphasis on <strong>(methods)</strong> and <strong>(applications)</strong>.
+        </p>
+        <p class="small" style="margin:0;">
+          Open to: <strong>collaborations</strong> / <strong>co-supervision</strong> / <strong>internships</strong>.
+          <!-- Optionnel : indique exactement ce que tu veux attirer -->
+        </p>
+      </div>
+    </section>
+
+    <!-- NEWS (optionnel mais utile) -->
+    <section id="news">
+      <h2>News</h2>
+      <div class="card">
+        <ul class="clean">
+          <li class="item">
+            <div>
+              <strong>[2025-02-24]</strong> Paper published in <em>PLoS Computational Biology</em>.
+              <span class="pill">publication</span>
+            </div>
+            <div class="meta">
+              <!-- Mets ici DOI / lien -->
+              <a href="https://doi.org/XXXXXXXX" target="_blank" rel="noopener">DOI</a>
+              · <a href="https://github.com/XXXX" target="_blank" rel="noopener">Code</a>
+            </div>
+          </li>
+          <!-- Ajoute 2–5 lignes max, sinon supprime la section -->
+        </ul>
+      </div>
+    </section>
+
+    <!-- PUBLICATIONS -->
+    <section id="publications">
+      <h2>Publications</h2>
+
+      <div class="grid cols-2">
+        <div class="card">
+          <p class="kicker">Peer-reviewed</p>
+          <ul class="clean">
+            <li class="item">
+              <div>
+                <strong>Title of the paper</strong> — Author A, Author B, <strong>Henriot P.</strong> (2025)
+              </div>
+              <div class="meta">
+                <em>Journal name</em>, volume(issue): pages/eID.
+                · <a href="https://doi.org/XXXXXXXX" target="_blank" rel="noopener">DOI</a>
+                · <a href="paper.pdf">PDF</a>
+                · <a href="https://github.com/XXXX" target="_blank" rel="noopener">Code</a>
+              </div>
+            </li>
+
+            <!-- Duplique les <li> -->
+          </ul>
+        </div>
+
+        <div class="card">
+          <p class="kicker">Preprints</p>
+          <ul class="clean">
+            <li class="item">
+              <div>
+                <strong>Title of the preprint</strong> — Author A, <strong>Henriot P.</strong> (2024)
+              </div>
+              <div class="meta">
+                bioRxiv/medRxiv/arXiv.
+                · <a href="https://doi.org/XXXXXXXX" target="_blank" rel="noopener">Link</a>
+                · <a href="https://github.com/XXXX" target="_blank" rel="noopener">Code</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="small" style="margin-top:10px;">
+        Tip: garde 8–15 entrées max ici, et renvoie vers Google Scholar pour le reste.
+      </p>
+    </section>
+
+    <!-- SOFTWARE / PROJECTS -->
+    <section id="software">
+      <h2>Selected projects / Software</h2>
+      <div class="card">
+        <ul class="clean">
+          <li class="item">
+            <div>
+              <strong>BloodPaTH</strong> — one-line: what it does and for whom.
+            </div>
+            <div class="meta">
+              2 lines max: method/stack (e.g., Python/R, Snakemake, PyTorch…), and what’s novel.
+              · <a href="https://github.com/phenriot/BloodPaTH" target="_blank" rel="noopener">GitHub</a>
+              · <a href="https://doi.org/XXXXXXXX" target="_blank" rel="noopener">Paper/DOI</a>
+            </div>
+          </li>
+
+          <li class="item">
+            <div><strong>Project 2</strong> — short “problem → approach → result”.</div>
+            <div class="meta">
+              <a href="https://github.com/XXXX" target="_blank" rel="noopener">Repo</a>
+              · <a href="https://example.com" target="_blank" rel="noopener">Demo</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TALKS / TEACHING -->
+    <section id="talks">
+      <h2>Talks / Teaching / Supervision</h2>
+      <div class="card">
+        <ul class="clean">
+          <li class="item">
+            <div><strong>Invited talk</strong> — Event, City (2025)</div>
+            <div class="meta">
+              <a href="slides.pdf">Slides</a> · <a href="https://youtu.be/XXXX" target="_blank" rel="noopener">Video</a>
+            </div>
+          </li>
+          <li class="item">
+            <div><strong>Teaching</strong> — Course name, level (2024–2025)</div>
+            <div class="meta">Topics: …</div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="card">
+        <p style="margin:0 0 10px 0;">
+          <!-- Option 1 : email obfusqué en texte -->
+          Email: <code>paul[dot]henriot[at]example[dot]org</code><br/>
+          Affiliation: INRAE — (City, Country)
+        </p>
+
+        <p class="small" style="margin:0;">
+          Also reachable via: <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a> or
+          <a href="https://github.com/phenriot" target="_blank" rel="noopener">GitHub</a>.
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      <div>
+        © <span id="y"></span> Paul Henriot · Built with plain HTML/CSS ·
+        <a href="#top" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;">Back to top</a>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // année auto
+    document.getElementById("y").textContent = new Date().getFull_attach toISOString? 0 : new Date().getFullYear();
+  </script>
+</body>
+</html>
+
