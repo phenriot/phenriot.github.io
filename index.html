@@ -138,11 +138,11 @@
     .pub-grid{
       align-items: stretch;
     }
-    .pub-card{
-      height: min(70vh, 720px);   /* 👈 hauteur commune des 2 colonnes */
-      display: flex;
-      flex-direction: column;
-    }
+.pub-card{
+  min-height: min(70vh, 720px); /* min, pas height */
+  display: flex;
+  flex-direction: column;
+}
 
     .pub-scroll{
       overflow-y: auto;
@@ -150,7 +150,7 @@
       margin-top: 8px;
       min-height: 0; /* IMPORTANT: flex+scroll */
     }
-    .preprints-scroll{ flex: 1; }
+    .preprints-scroll{ flex: 0 0 auto; }
 
     /* HAL plus petit */
     .hal-scroll{
