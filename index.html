@@ -134,25 +134,26 @@
       border-radius: 8px;
     }
 
-    /* ===== HAL publications scroll box ===== */
-    .hal-scroll{
-      max-height: min(40vh, 360px); /* 👈 zone plus petite + responsive */
+    /* ===== Scroll boxes for publications ===== */
+    .pub-scroll{
+      max-height: min(50vh, 520px); /* 👈 ajuste ici pour TOUTES les listes */
       overflow-y: auto;
-      padding-right: 6px;          /* espace pour scrollbar */
+      padding-right: 6px;
       margin-top: 8px;
     }
+
     /* Scrollbar (WebKit: Chrome/Safari/Edge) */
-    .hal-scroll::-webkit-scrollbar{ width: 8px; }
-    .hal-scroll::-webkit-scrollbar-track{ background: transparent; }
-    .hal-scroll::-webkit-scrollbar-thumb{
+    .pub-scroll::-webkit-scrollbar{ width: 8px; }
+    .pub-scroll::-webkit-scrollbar-track{ background: transparent; }
+    .pub-scroll::-webkit-scrollbar-thumb{
       background-color: rgba(140,140,140,.35);
       border-radius: 999px;
     }
-    .hal-scroll::-webkit-scrollbar-thumb:hover{
+    .pub-scroll::-webkit-scrollbar-thumb:hover{
       background-color: rgba(140,140,140,.55);
     }
     /* Scrollbar (Firefox) */
-    .hal-scroll{
+    .pub-scroll{
       scrollbar-width: thin;
       scrollbar-color: rgba(140,140,140,.45) transparent;
     }
@@ -236,104 +237,106 @@
       <h2>Selected publications</h2>
 
       <div class="grid cols-2">
+        <!-- Peer-reviewed -->
         <div class="card">
           <p class="kicker">Peer-reviewed</p>
-          <ul class="clean">
-            <li class="item">
-              <div>
-                <b>Henriot P., El Kassas M., Anwar W., Abdo S., Jean K., Temime L.</b> —
-                <a href="https://doi.org/10.1101/2023.11.14.23298506" target="_blank" rel="noopener noreferrer">
-                  An agent-based model to simulate the transmission dynamics of bloodborne pathogens within hospitals
-                </a>
-                (2025). <i>PLoS Computational Biology</i>.
-                <span class="pill">update status</span>
-              </div>
-            </li>
+          <div class="pub-scroll" aria-label="Peer-reviewed publications">
+            <ul class="clean">
+              <li class="item">
+                <div>
+                  <b>Henriot P., El Kassas M., Anwar W., Abdo S., Jean K., Temime L.</b> —
+                  <a href="https://doi.org/10.1101/2023.11.14.23298506" target="_blank" rel="noopener noreferrer">
+                    An agent-based model to simulate the transmission dynamics of bloodborne pathogens within hospitals
+                  </a>
+                  (2025). <i>PLoS Computational Biology</i>.
+                  <span class="pill">update status</span>
+                </div>
+              </li>
 
-            <li class="item">
-              <div>
-                <b>Henriot P., Buelow E., Petit F., Ploy M.C., Dagot C., Opatowski L.</b> —
-                <a href="https://doi.org/10.1016/j.scitotenv.2024.171643" target="_blank" rel="noopener noreferrer">
-                  Modelling the impact of urban and hospital wastewaters eco-exposomes on the antibiotic-resistance dynamics.
-                </a>
-                (2024). <i>Science of the Total Environment</i>.
-              </div>
-            </li>
+              <li class="item">
+                <div>
+                  <b>Henriot P., Buelow E., Petit F., Ploy M.C., Dagot C., Opatowski L.</b> —
+                  <a href="https://doi.org/10.1016/j.scitotenv.2024.171643" target="_blank" rel="noopener noreferrer">
+                    Modelling the impact of urban and hospital wastewaters eco-exposomes on the antibiotic-resistance dynamics.
+                  </a>
+                  (2024). <i>Science of the Total Environment</i>.
+                </div>
+              </li>
 
-            <li class="item">
-              <div>
-                <b>Kovacevic A., Smith D.R.M., Rahbé E., Novelli S., Henriot P., et al.</b> —
-                <a href="https://doi.org/10.7554/eLife.85701" target="_blank" rel="noopener noreferrer">
-                  Exploring factors shaping antibiotic resistance patterns in Streptococcus pneumoniae during the 2020 COVID-19 pandemic (2024).
-                </a>
-                (2024). <i>eLife</i>.
-              </div>
-            </li>
+              <li class="item">
+                <div>
+                  <b>Kovacevic A., Smith D.R.M., Rahbé E., Novelli S., Henriot P., et al.</b> —
+                  <a href="https://doi.org/10.7554/eLife.85701" target="_blank" rel="noopener noreferrer">
+                    Exploring factors shaping antibiotic resistance patterns in Streptococcus pneumoniae during the 2020 COVID-19 pandemic (2024).
+                  </a>
+                  (2024). <i>eLife</i>.
+                </div>
+              </li>
 
-            <li class="item">
-              <div>
-                <b>Henriot P., Anwar W. A., El Gaafary M., Abdo S., Rafik M., Hussein W. M., Sos D., Magdy I., Jean K., Temime L.</b> —
-                <a href="https://doi.org/10.1371/journal.pgph.0002821" target="_blank" rel="noopener noreferrer">
-                  Preventing iatrogenic HCV infection: A quantitative risk assessment based on observational data in an Egyptian hospital.
-                </a>
-                (2024). <i>Plos Global Public Health</i>.
-              </div>
-            </li>
+              <li class="item">
+                <div>
+                  <b>Henriot P., Anwar W. A., El Gaafary M., Abdo S., Rafik M., Hussein W. M., Sos D., Magdy I., Jean K., Temime L.</b> —
+                  <a href="https://doi.org/10.1371/journal.pgph.0002821" target="_blank" rel="noopener noreferrer">
+                    Preventing iatrogenic HCV infection: A quantitative risk assessment based on observational data in an Egyptian hospital.
+                  </a>
+                  (2024). <i>Plos Global Public Health</i>.
+                </div>
+              </li>
 
-            <li class="item">
-              <div>
-                <b>Smith, D.R.M., Jijón, S., Oodally, A., Shirreff, G., Aït Bouziad, K., Ante-Testard, P.A., Bastard, J., Bouziri, H., Daouda, O.S., Duchemin, T., Godon-Rensonnet, A.-S., Henriot, P., Houri, Y., Neynaud, H., Perozziello, A., Thonon, F., Crépey, P., Dab, W., Jean, K., Temime, L.</b> —
-                <a href="https://doi.org/10.1136/oemed-2022-108451" target="_blank" rel="noopener noreferrer">
-                  Sick leave due to COVID-19 during the first pandemic wave in France, 2020.
-                </a>
-                (2022). <i>Occupational & Environmental Medicine</i>.
-              </div>
-            </li>
+              <li class="item">
+                <div>
+                  <b>Smith, D.R.M., Jijón, S., Oodally, A., Shirreff, G., Aït Bouziad, K., Ante-Testard, P.A., Bastard, J., Bouziri, H., Daouda, O.S., Duchemin, T., Godon-Rensonnet, A.-S., Henriot, P., Houri, Y., Neynaud, H., Perozziello, A., Thonon, F., Crépey, P., Dab, W., Jean, K., Temime, L.</b> —
+                  <a href="https://doi.org/10.1136/oemed-2022-108451" target="_blank" rel="noopener noreferrer">
+                    Sick leave due to COVID-19 during the first pandemic wave in France, 2020.
+                  </a>
+                  (2022). <i>Occupational & Environmental Medicine</i>.
+                </div>
+              </li>
 
-            <li class="item">
-              <div>
-                <b>Henriot, P., Castry, M., Luong Nguyen, L.B., Shimakawa, Y., Jean, K., Temime, L.</b> —
-                <a href="https://doi.org/10.1111/apt.17106" target="_blank" rel="noopener noreferrer">
-                  Meta-analysis: risk of hepatitis C virus infection associated with hospital-based invasive procedures.
-                </a>
-                (2022). <i>Alimentary Pharmacology & Therapeutics</i>.
-              </div>
-            </li>
-          </ul>
+              <li class="item">
+                <div>
+                  <b>Henriot, P., Castry, M., Luong Nguyen, L.B., Shimakawa, Y., Jean, K., Temime, L.</b> —
+                  <a href="https://doi.org/10.1111/apt.17106" target="_blank" rel="noopener noreferrer">
+                    Meta-analysis: risk of hepatitis C virus infection associated with hospital-based invasive procedures.
+                  </a>
+                  (2022). <i>Alimentary Pharmacology & Therapeutics</i>.
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
 
+        <!-- Preprints + HAL -->
         <div class="card">
           <p class="kicker">Preprints</p>
-          <ul class="clean">
-            <li class="item">
-              <div>
-                <b>Moutet L., Leclerc Q., Layan M., Ait Bouziad K., Dab W., Henriot P., et al.</b> —
-                <a href="https://www.medrxiv.org/content/10.1101/2024.07.18.24310632v1" target="_blank" rel="noopener noreferrer">
-                  Teleworking and health in an epidemic context: contrasting the infectious and non-communicable diseases perspectives
-                </a>
-                (2024). <i>medRxiv</i>.
-              </div>
-            </li>
-          </ul>
+          <div class="pub-scroll" aria-label="Preprints">
+            <ul class="clean">
+              <li class="item">
+                <div>
+                  <b>Moutet L., Leclerc Q., Layan M., Ait Bouziad K., Dab W., Henriot P., et al.</b> —
+                  <a href="https://www.medrxiv.org/content/10.1101/2024.07.18.24310632v1" target="_blank" rel="noopener noreferrer">
+                    Teleworking and health in an epidemic context: contrasting the infectious and non-communicable diseases perspectives
+                  </a>
+                  (2024). <i>medRxiv</i>.
+                </div>
+              </li>
+            </ul>
+          </div>
 
           <p class="kicker" style="margin-top:16px;">HAL list</p>
+          <div class="meta" id="hal-status">Loading…</div>
 
-          <!-- ✅ HAL box WITH internal scroll -->
-          <div class="card">
-            <div id="hal-status" class="meta">Loading…</div>
-
-            <!-- important: the scroll is on this wrapper -->
-            <div class="hal-scroll" aria-label="HAL publications list">
-              <ul id="hal-list" class="clean"></ul>
-            </div>
-
-            <noscript>
-              <p class="meta" style="margin:10px 0 0;">
-                La liste HAL nécessite JavaScript. Voir aussi via
-                <a href="https://hal.science/search/index/?q=paul%20henriot" target="_blank" rel="noopener noreferrer">HAL</a>.
-              </p>
-            </noscript>
+          <!-- HAL scroll zone -->
+          <div class="pub-scroll" aria-label="HAL publications list">
+            <ul id="hal-list" class="clean"></ul>
           </div>
+
+          <noscript>
+            <p class="meta" style="margin:10px 0 0;">
+              La liste HAL nécessite JavaScript. Voir aussi via
+              <a href="https://hal.science/search/index/?q=paul%20henriot" target="_blank" rel="noopener noreferrer">HAL</a>.
+            </p>
+          </noscript>
         </div>
       </div>
     </section>
@@ -403,7 +406,6 @@
       const statusEl = document.getElementById("hal-status");
       const listEl = document.getElementById("hal-list");
 
-      // HAL API query
       const url = new URL("https://api.archives-ouvertes.fr/search/");
       url.searchParams.set("q", "authIdHal_s:paul-henriot");
       url.searchParams.set("rows", "50");
