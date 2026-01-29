@@ -133,6 +133,29 @@
       padding: 2px 6px;
       border-radius: 8px;
     }
+
+    /* ===== HAL publications scroll box ===== */
+    .hal-scroll{
+      max-height: min(40vh, 360px); /* 👈 zone plus petite + responsive */
+      overflow-y: auto;
+      padding-right: 6px;          /* espace pour scrollbar */
+      margin-top: 8px;
+    }
+    /* Scrollbar (WebKit: Chrome/Safari/Edge) */
+    .hal-scroll::-webkit-scrollbar{ width: 8px; }
+    .hal-scroll::-webkit-scrollbar-track{ background: transparent; }
+    .hal-scroll::-webkit-scrollbar-thumb{
+      background-color: rgba(140,140,140,.35);
+      border-radius: 999px;
+    }
+    .hal-scroll::-webkit-scrollbar-thumb:hover{
+      background-color: rgba(140,140,140,.55);
+    }
+    /* Scrollbar (Firefox) */
+    .hal-scroll{
+      scrollbar-width: thin;
+      scrollbar-color: rgba(140,140,140,.45) transparent;
+    }
   </style>
 </head>
 
@@ -160,7 +183,6 @@
       </div>
 
       <nav class="links" aria-label="Liens externes">
-        <!-- Drapeau (si tu as une page EN séparée, change le href) -->
         <a class="chip" href="index_fr.html" title="Version française">
           <img src="french_flag.png" alt="FR" />
           FR
@@ -209,7 +231,6 @@
       </div>
     </section>
 
-
     <!-- PUBLICATIONS -->
     <section id="publications">
       <h2>Selected publications</h2>
@@ -242,7 +263,9 @@
             <li class="item">
               <div>
                 <b>Kovacevic A., Smith D.R.M., Rahbé E., Novelli S., Henriot P., et al.</b> —
-                <a href="https://doi.org/10.7554/eLife.85701" target="_blank" rel="noopener noreferrer">Exploring factors shaping antibiotic resistance patterns in Streptococcus pneumoniae during the 2020 COVID-19 pandemic (2024).</a>
+                <a href="https://doi.org/10.7554/eLife.85701" target="_blank" rel="noopener noreferrer">
+                  Exploring factors shaping antibiotic resistance patterns in Streptococcus pneumoniae during the 2020 COVID-19 pandemic (2024).
+                </a>
                 (2024). <i>eLife</i>.
               </div>
             </li>
@@ -250,7 +273,9 @@
             <li class="item">
               <div>
                 <b>Henriot P., Anwar W. A., El Gaafary M., Abdo S., Rafik M., Hussein W. M., Sos D., Magdy I., Jean K., Temime L.</b> —
-                <a href="https://doi.org/10.1371/journal.pgph.0002821" target="_blank" rel="noopener noreferrer">Preventing iatrogenic HCV infection: A quantitative risk assessment based on observational data in an Egyptian hospital.</a>
+                <a href="https://doi.org/10.1371/journal.pgph.0002821" target="_blank" rel="noopener noreferrer">
+                  Preventing iatrogenic HCV infection: A quantitative risk assessment based on observational data in an Egyptian hospital.
+                </a>
                 (2024). <i>Plos Global Public Health</i>.
               </div>
             </li>
@@ -258,8 +283,9 @@
             <li class="item">
               <div>
                 <b>Smith, D.R.M., Jijón, S., Oodally, A., Shirreff, G., Aït Bouziad, K., Ante-Testard, P.A., Bastard, J., Bouziri, H., Daouda, O.S., Duchemin, T., Godon-Rensonnet, A.-S., Henriot, P., Houri, Y., Neynaud, H., Perozziello, A., Thonon, F., Crépey, P., Dab, W., Jean, K., Temime, L.</b> —
-                
-                <a href="https://doi.org/10.1136/oemed-2022-108451" target="_blank" rel="noopener noreferrer">Sick leave due to COVID-19 during the first pandemic wave in France, 2020.</a>
+                <a href="https://doi.org/10.1136/oemed-2022-108451" target="_blank" rel="noopener noreferrer">
+                  Sick leave due to COVID-19 during the first pandemic wave in France, 2020.
+                </a>
                 (2022). <i>Occupational & Environmental Medicine</i>.
               </div>
             </li>
@@ -267,7 +293,9 @@
             <li class="item">
               <div>
                 <b>Henriot, P., Castry, M., Luong Nguyen, L.B., Shimakawa, Y., Jean, K., Temime, L.</b> —
-                <a href="https://doi.org/10.1111/apt.17106" target="_blank" rel="noopener noreferrer">Meta-analysis: risk of hepatitis C virus infection associated with hospital-based invasive procedures.</a>
+                <a href="https://doi.org/10.1111/apt.17106" target="_blank" rel="noopener noreferrer">
+                  Meta-analysis: risk of hepatitis C virus infection associated with hospital-based invasive procedures.
+                </a>
                 (2022). <i>Alimentary Pharmacology & Therapeutics</i>.
               </div>
             </li>
@@ -288,19 +316,24 @@
             </li>
           </ul>
 
-          <p class="kicker" style="margin-top:16px;">HAL list (embedded)</p>
-<div class="card">
-  <p class="kicker">HAL list</p>
-  <div id="hal-status" class="meta">Loading…</div>
-  <ul id="hal-list" class="clean"></ul>
-</div>
+          <p class="kicker" style="margin-top:16px;">HAL list</p>
 
-          <noscript>
-            <p class="meta" style="margin:10px 0 0;">
-              La liste HAL nécessite JavaScript. Voir aussi via
-              <a href="https://hal.science/search/index/?q=paul%20henriot" target="_blank" rel="noopener noreferrer">HAL</a>.
-            </p>
-          </noscript>
+          <!-- ✅ HAL box WITH internal scroll -->
+          <div class="card">
+            <div id="hal-status" class="meta">Loading…</div>
+
+            <!-- important: the scroll is on this wrapper -->
+            <div class="hal-scroll" aria-label="HAL publications list">
+              <ul id="hal-list" class="clean"></ul>
+            </div>
+
+            <noscript>
+              <p class="meta" style="margin:10px 0 0;">
+                La liste HAL nécessite JavaScript. Voir aussi via
+                <a href="https://hal.science/search/index/?q=paul%20henriot" target="_blank" rel="noopener noreferrer">HAL</a>.
+              </p>
+            </noscript>
+          </div>
         </div>
       </div>
     </section>
@@ -317,7 +350,6 @@
             </div>
             <div class="meta">R package · agent-based modelling · hospital transmission.</div>
           </li>
-          <!-- Ajoute 1–2 projets si tu veux -->
         </ul>
       </div>
     </section>
@@ -367,83 +399,80 @@
   </script>
 
   <script>
-  (async function loadHAL() {
-    const statusEl = document.getElementById("hal-status");
-    const listEl = document.getElementById("hal-list");
+    (async function loadHAL() {
+      const statusEl = document.getElementById("hal-status");
+      const listEl = document.getElementById("hal-list");
 
-    // ✅ API HAL (docs: /search + paramètres q, fl, rows, sort, wt=json)
-    // On filtre sur ton idHAL auteur (ici "paul-henriot" comme dans ton URL haltools).
-    // Si jamais ça ne retourne rien, je te donne juste après une alternative de requête.
-    const url = new URL("https://api.archives-ouvertes.fr/search/");
-    url.searchParams.set("q", "authIdHal_s:paul-henriot");
-    url.searchParams.set("rows", "50");
-    url.searchParams.set("wt", "json");
-    url.searchParams.set("sort", "producedDate_tdate desc");
-    url.searchParams.set("fl", [
-      "title_s",
-      "producedDateY_i",
-      "authFullName_s",
-      "journalTitle_s",
-      "docType_s",
-      "uri_s",
-      "doiId_s"
-    ].join(","));
+      // HAL API query
+      const url = new URL("https://api.archives-ouvertes.fr/search/");
+      url.searchParams.set("q", "authIdHal_s:paul-henriot");
+      url.searchParams.set("rows", "50");
+      url.searchParams.set("wt", "json");
+      url.searchParams.set("sort", "producedDate_tdate desc");
+      url.searchParams.set("fl", [
+        "title_s",
+        "producedDateY_i",
+        "journalTitle_s",
+        "uri_s",
+        "doiId_s"
+      ].join(","));
 
-    try {
-      const res = await fetch(url.toString(), { headers: { "Accept": "application/json" }});
-      if (!res.ok) throw new Error("HAL API error: " + res.status);
-      const data = await res.json();
+      try {
+        const res = await fetch(url.toString(), { headers: { "Accept": "application/json" }});
+        if (!res.ok) throw new Error("HAL API error: " + res.status);
+        const data = await res.json();
 
-      const docs = (data.response && data.response.docs) ? data.response.docs : [];
-      if (!docs.length) {
-        statusEl.textContent = "No results returned by HAL API for this query.";
-        return;
+        const docs = (data.response && data.response.docs) ? data.response.docs : [];
+        if (!docs.length) {
+          statusEl.textContent = "No results returned by HAL API for this query.";
+          return;
+        }
+
+        statusEl.textContent = `${docs.length} items from HAL`;
+
+        listEl.innerHTML = docs.map(d => {
+          const title = (d.title_s && d.title_s[0]) ? d.title_s[0] : "Untitled";
+          const year = d.producedDateY_i ? ` (${d.producedDateY_i})` : "";
+          const venue = d.journalTitle_s ? ` — <i>${escapeHtml(d.journalTitle_s)}</i>` : "";
+          const link = d.uri_s ? d.uri_s : null;
+          const doi = d.doiId_s
+            ? ` · <a href="https://doi.org/${encodeURIComponent(d.doiId_s)}" target="_blank" rel="noopener noreferrer">DOI</a>`
+            : "";
+
+          return `
+            <li class="item">
+              <div>
+                ${link
+                  ? `<a href="${escapeAttr(link)}" target="_blank" rel="noopener noreferrer"><b>${escapeHtml(title)}</b></a>`
+                  : `<b>${escapeHtml(title)}</b>`
+                }${year}${venue}
+              </div>
+              <div class="meta">
+                ${link ? `<a href="${escapeAttr(link)}" target="_blank" rel="noopener noreferrer">HAL</a>` : ""}
+                ${doi}
+              </div>
+            </li>
+          `;
+        }).join("");
+
+      } catch (e) {
+        statusEl.textContent = "Could not load HAL publications.";
+        console.error(e);
       }
 
-      statusEl.textContent = `${docs.length} items from HAL`;
-
-      // Affichage simple (tu peux améliorer ensuite: group by year, docType…)
-      listEl.innerHTML = docs.map(d => {
-        const title = (d.title_s && d.title_s[0]) ? d.title_s[0] : "Untitled";
-        const year = d.producedDateY_i ? ` (${d.producedDateY_i})` : "";
-        const venue = d.journalTitle_s ? ` — <i>${escapeHtml(d.journalTitle_s)}</i>` : "";
-        const link = d.uri_s ? d.uri_s : null;
-        const doi = d.doiId_s ? ` · <a href="https://doi.org/${encodeURIComponent(d.doiId_s)}" target="_blank" rel="noopener noreferrer">DOI</a>` : "";
-
-        return `
-          <li class="item">
-            <div>
-              ${link
-                ? `<a href="${escapeAttr(link)}" target="_blank" rel="noopener noreferrer"><b>${escapeHtml(title)}</b></a>`
-                : `<b>${escapeHtml(title)}</b>`
-              }${year}${venue}
-            </div>
-            <div class="meta">
-              ${link ? `<a href="${escapeAttr(link)}" target="_blank" rel="noopener noreferrer">HAL</a>` : ""}
-              ${doi}
-            </div>
-          </li>
-        `;
-      }).join("");
-
-    } catch (e) {
-      statusEl.textContent = "Could not load HAL publications.";
-      console.error(e);
-    }
-
-    function escapeHtml(str){
-      return String(str)
-        .replaceAll("&","&amp;")
-        .replaceAll("<","&lt;")
-        .replaceAll(">","&gt;")
-        .replaceAll('"',"&quot;")
-        .replaceAll("'","&#039;");
-    }
-    function escapeAttr(str){
-      return escapeHtml(str).replaceAll("`","&#096;");
-    }
-  })();
-</script>
+      function escapeHtml(str){
+        return String(str)
+          .replaceAll("&","&amp;")
+          .replaceAll("<","&lt;")
+          .replaceAll(">","&gt;")
+          .replaceAll('"',"&quot;")
+          .replaceAll("'","&#039;");
+      }
+      function escapeAttr(str){
+        return escapeHtml(str).replaceAll("`","&#096;");
+      }
+    })();
+  </script>
 
 </body>
 </html>
