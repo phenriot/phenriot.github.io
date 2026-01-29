@@ -135,31 +135,30 @@
     }
 
     /* ===== Make publication columns same height + internal scroll ===== */
-    .pub-grid{
-      align-items: stretch;
-    }
+.pub-grid{ align-items: start; } /* au lieu de stretch */
+
 .pub-card{
-  min-height: min(70vh, 720px); /* min, pas height */
   display: flex;
   flex-direction: column;
 }
 
-    .pub-scroll{
-      overflow-y: auto;
-      padding-right: 6px;
-      margin-top: 8px;
-      min-height: 0; /* IMPORTANT: flex+scroll */
-    }
-    .preprints-scroll{ flex: 0 0 auto; }
+/* scroll seulement si ça déborde, sinon hauteur naturelle */
+.pub-scroll{
+  max-height: 520px;      /* ajuste si besoin */
+  overflow-y: auto;
+  padding-right: 6px;
+  margin-top: 8px;
+  min-height: 0;
+}
 
-    /* HAL plus petit */
-    .hal-scroll{
-      max-height: 220px; /* 👈 réduit la zone HAL */
-      overflow-y: auto;
-      padding-right: 6px;
-      margin-top: 8px;
-      min-height: 0;
-    }
+.hal-scroll{
+  max-height: 220px;      /* ton HAL réduit */
+  overflow-y: auto;
+  padding-right: 6px;
+  margin-top: 8px;
+  min-height: 0;
+}
+
 
     /* Scrollbar style (WebKit) */
     .pub-scroll::-webkit-scrollbar,
