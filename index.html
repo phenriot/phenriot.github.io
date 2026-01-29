@@ -289,9 +289,12 @@
           </ul>
 
           <p class="kicker" style="margin-top:16px;">HAL list (embedded)</p>
-          <div class="archivesouvertes_embed" width="640" height="360"
-            data-url="https://haltools.archives-ouvertes.fr/Public/afficheRequetePubli.php?idHal=+paul-henriot&amp;CB_ref_biblio=oui&amp;langue=Francais&amp;tri_exp=annee_publi&amp;tri_exp2=typdoc&amp;tri_exp3=auteur_exp&amp;ordre_aff=AT&amp;CB_rubriqueDiv=oui&amp;Fen=Aff&amp">
-          </div>
+<div class="card">
+  <p class="kicker">HAL list</p>
+  <div id="hal-status" class="meta">Loading…</div>
+  <ul id="hal-list" class="clean"></ul>
+</div>
+
           <noscript>
             <p class="meta" style="margin:10px 0 0;">
               La liste HAL nécessite JavaScript. Voir aussi via
@@ -362,5 +365,85 @@
       a.rel = "noopener noreferrer";
     })();
   </script>
+
+  <script>
+  (async function loadHAL() {
+    const statusEl = document.getElementById("hal-status");
+    const listEl = document.getElementById("hal-list");
+
+    // ✅ API HAL (docs: /search + paramètres q, fl, rows, sort, wt=json)
+    // On filtre sur ton idHAL auteur (ici "paul-henriot" comme dans ton URL haltools).
+    // Si jamais ça ne retourne rien, je te donne juste après une alternative de requête.
+    const url = new URL("https://api.archives-ouvertes.fr/search/");
+    url.searchParams.set("q", "authIdHal_s:paul-henriot");
+    url.searchParams.set("rows", "50");
+    url.searchParams.set("wt", "json");
+    url.searchParams.set("sort", "producedDate_tdate desc");
+    url.searchParams.set("fl", [
+      "title_s",
+      "producedDateY_i",
+      "authFullName_s",
+      "journalTitle_s",
+      "docType_s",
+      "uri_s",
+      "doiId_s"
+    ].join(","));
+
+    try {
+      const res = await fetch(url.toString(), { headers: { "Accept": "application/json" }});
+      if (!res.ok) throw new Error("HAL API error: " + res.status);
+      const data = await res.json();
+
+      const docs = (data.response && data.response.docs) ? data.response.docs : [];
+      if (!docs.length) {
+        statusEl.textContent = "No results returned by HAL API for this query.";
+        return;
+      }
+
+      statusEl.textContent = `${docs.length} items from HAL`;
+
+      // Affichage simple (tu peux améliorer ensuite: group by year, docType…)
+      listEl.innerHTML = docs.map(d => {
+        const title = (d.title_s && d.title_s[0]) ? d.title_s[0] : "Untitled";
+        const year = d.producedDateY_i ? ` (${d.producedDateY_i})` : "";
+        const venue = d.journalTitle_s ? ` — <i>${escapeHtml(d.journalTitle_s)}</i>` : "";
+        const link = d.uri_s ? d.uri_s : null;
+        const doi = d.doiId_s ? ` · <a href="https://doi.org/${encodeURIComponent(d.doiId_s)}" target="_blank" rel="noopener noreferrer">DOI</a>` : "";
+
+        return `
+          <li class="item">
+            <div>
+              ${link
+                ? `<a href="${escapeAttr(link)}" target="_blank" rel="noopener noreferrer"><b>${escapeHtml(title)}</b></a>`
+                : `<b>${escapeHtml(title)}</b>`
+              }${year}${venue}
+            </div>
+            <div class="meta">
+              ${link ? `<a href="${escapeAttr(link)}" target="_blank" rel="noopener noreferrer">HAL</a>` : ""}
+              ${doi}
+            </div>
+          </li>
+        `;
+      }).join("");
+
+    } catch (e) {
+      statusEl.textContent = "Could not load HAL publications.";
+      console.error(e);
+    }
+
+    function escapeHtml(str){
+      return String(str)
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+    }
+    function escapeAttr(str){
+      return escapeHtml(str).replaceAll("`","&#096;");
+    }
+  })();
+</script>
+
 </body>
 </html>
