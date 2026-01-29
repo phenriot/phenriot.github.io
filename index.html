@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Paul Henriot — Academic page</title>
-  <meta name="description" content="Paul Henriot — researcher in epidemiology / mathematical modelling (One Health). Publications, CV, software, contact." />
+  <meta name="description" content="Paul Henriot — researcher in epidemiology / mathematical modelling (One Health). Publications, projects, CV, contact." />
   <link rel="canonical" href="https://phenriot.github.io/" />
 
   <style>
@@ -16,7 +16,6 @@
       --link:#0f766e;
       --border:#e5e7eb;
       --card:#f9fafb;
-      --chip:#ffffff;
       --shadow: 0 1px 10px rgba(0,0,0,.05);
     }
     @media (prefers-color-scheme: dark){
@@ -27,12 +26,11 @@
         --link:#5eead4;
         --border:#1f2937;
         --card:#0f172a;
-        --chip:#0b1020;
         --shadow: 0 1px 10px rgba(0,0,0,.25);
       }
     }
 
-    html, body { height:100%; }
+    html, body{ height:100%; }
     body{
       margin:0;
       background:var(--bg);
@@ -42,11 +40,7 @@
     a{ color:var(--link); text-decoration:none; }
     a:hover{ text-decoration:underline; }
 
-    .wrap{
-      max-width: 920px;
-      margin: 0 auto;
-      padding: 32px 20px 64px;
-    }
+    .wrap{ max-width: 920px; margin:0 auto; padding: 32px 20px 64px; }
 
     header{
       display:flex;
@@ -59,147 +53,66 @@
       margin-bottom: 22px;
     }
 
-    .id{
-      display:flex;
-      align-items:center;
-      gap:16px;
-      flex-wrap:wrap;
-    }
-
+    .id{ display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
     .avatar{
-      width:72px;
-      height:72px;
-      border-radius: 999px;
-      object-fit: cover;
-      border:1px solid var(--border);
-      box-shadow: var(--shadow);
-      background: var(--card);
+      width:72px; height:72px; border-radius:999px; object-fit:cover;
+      border:1px solid var(--border); background:var(--card); box-shadow:var(--shadow);
     }
+    .id h1{ margin:0 0 4px 0; font-size: 28px; letter-spacing:-0.02em; line-height:1.15; }
+    .tagline{ margin:0; color:var(--muted); max-width: 70ch; }
 
-    .id h1{
-      margin:0 0 4px 0;
-      font-size: 28px;
-      letter-spacing:-0.02em;
-      line-height:1.15;
+    .links{
+      display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end; align-items:center;
     }
-    .tagline{
-      margin:0;
-      color:var(--muted);
-      max-width: 62ch;
-    }
-
-    nav{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-      align-items:center;
-      margin-top: 2px;
-    }
-
     .chip{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:7px 10px;
-      border:1px solid var(--border);
-      border-radius: 999px;
-      background: var(--chip);
-      white-space:nowrap;
-      font-size: 14px;
-      box-shadow: var(--shadow);
+      display:inline-flex; align-items:center; gap:8px;
+      padding:7px 10px; border:1px solid var(--border);
+      border-radius:999px; background:var(--card);
+      white-space:nowrap; font-size:14px; box-shadow:var(--shadow);
     }
+    .chip img{ width:18px; height:18px; object-fit:contain; display:block; filter: grayscale(1) contrast(1.1); opacity:.9; }
+    .chip:hover img{ filter:none; opacity:1; }
 
-    /* Icônes dans les chips */
-    .chip img{
-      width:18px;
-      height:18px;
-      object-fit:contain;
-      display:block;
-      /* petit effet “mono” (optionnel) */
-      filter: grayscale(1) contrast(1.1);
-      opacity: .9;
-    }
-    .chip:hover img{
-      filter:none;
-      opacity: 1;
-    }
-
-    /* Petit menu interne */
+    /* Sommaire interne */
     .toc{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      margin: 14px 0 0;
-      color: var(--muted);
-      font-size: 14px;
+      display:flex; gap:12px; flex-wrap:wrap;
+      margin: 14px 0 0; color:var(--muted); font-size:14px;
     }
-    .toc a{ color: var(--muted); }
-    .toc a:hover{ color: var(--link); }
+    .toc a{ color:var(--muted); }
+    .toc a:hover{ color:var(--link); }
 
     section{ margin-top: 26px; }
-    h2{
-      font-size: 18px;
-      margin: 0 0 10px 0;
-    }
+    h2{ font-size: 18px; margin: 0 0 10px 0; }
 
     .card{
       background:var(--card);
       border:1px solid var(--border);
       border-radius: 16px;
       padding: 14px 14px;
-      box-shadow: var(--shadow);
+      box-shadow:var(--shadow);
     }
 
-    .grid{
-      display:grid;
-      gap:12px;
-    }
+    .grid{ display:grid; gap:12px; }
     @media (min-width: 820px){
       .grid.cols-2{ grid-template-columns: 1fr 1fr; }
     }
 
-    ul.clean{
-      list-style:none;
-      padding-left:0;
-      margin:0;
-    }
-    li.item{
-      padding: 10px 0;
-      border-bottom: 1px solid var(--border);
-    }
+    ul.clean{ list-style:none; padding-left:0; margin:0; }
+    li.item{ padding: 10px 0; border-bottom: 1px solid var(--border); }
     li.item:last-child{ border-bottom:0; }
 
-    .meta{
-      color:var(--muted);
-      font-size: 14px;
-      margin-top: 3px;
-    }
-
+    .meta{ color:var(--muted); font-size: 14px; margin-top: 3px; }
     .kicker{
-      font-size: 13px;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: .08em;
+      font-size: 13px; color: var(--muted);
+      text-transform: uppercase; letter-spacing: .08em;
       margin: 0 0 8px 0;
     }
 
     .pill{
-      display:inline-block;
-      font-size: 12px;
-      padding: 2px 8px;
-      border:1px solid var(--border);
-      border-radius: 999px;
-      color: var(--muted);
-      margin-left: 8px;
-      vertical-align: 1px;
-    }
-
-    code{
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      background: rgba(125,125,125,.12);
-      padding: 2px 6px;
-      border-radius: 8px;
+      display:inline-block; font-size: 12px;
+      padding: 2px 8px; border:1px solid var(--border);
+      border-radius: 999px; color: var(--muted);
+      margin-left: 8px; vertical-align: 1px;
     }
 
     footer{
@@ -214,17 +127,11 @@
       flex-wrap:wrap;
     }
 
-    /* Petit lien langue (si tu as une version FR/EN séparée) */
-    .lang{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-    }
-    .lang img{
-      width:18px; height:18px;
-      border-radius: 4px;
-      border:1px solid var(--border);
-      background:#fff;
+    code{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      background: rgba(125,125,125,.12);
+      padding: 2px 6px;
+      border-radius: 8px;
     }
   </style>
 </head>
@@ -242,26 +149,25 @@
             </p>
 
             <nav class="toc" aria-label="Navigation interne">
-              <a href="#contact">Contact</a>
-              <a href="#research">Research</a>
-              <a href="#cv">CV</a>
+              <a href="#about">About</a>
+              <a href="#news">News</a>
               <a href="#publications">Publications</a>
               <a href="#software">Software</a>
+              <a href="#talks">Talks/Teaching</a>
+              <a href="#contact">Contact</a>
             </nav>
           </div>
         </div>
       </div>
 
-      <nav aria-label="Liens" class="links">
-        <!-- Langue -->
-        <a class="chip lang" href="index_fr.html" title="Version française">
+      <nav class="links" aria-label="Liens externes">
+        <!-- Drapeau (si tu as une page EN séparée, change le href) -->
+        <a class="chip" href="index_fr.html" title="Version française">
           <img src="french_flag.png" alt="FR" />
           FR
         </a>
 
-        <a class="chip" href="English_CV.pdf" target="_blank" rel="noopener noreferrer">
-          CV (PDF)
-        </a>
+        <a class="chip" href="English_CV.pdf" target="_blank" rel="noopener noreferrer">CV (PDF)</a>
 
         <a class="chip" href="https://scholar.google.com/citations?user=Zy69Pt4AAAAJ&hl=fr" target="_blank" rel="noopener noreferrer" title="Google Scholar">
           <img src="google-scholar.jpg" alt="" aria-hidden="true" />
@@ -290,6 +196,168 @@
       </nav>
     </header>
 
+    <!-- ABOUT -->
+    <section id="about">
+      <h2>About</h2>
+      <div class="card">
+        <p style="margin:0 0 10px 0;">
+          My research is mainly focused on the use of mathematical tools to better understand the transmission of pathogens in humans
+          and animals as well as their diffusion in the environment with a One Health approach.
+        </p>
+        <p class="meta" style="margin:0;">
+          Open to: <b>collaborations</b> / <b>co-supervision</b> / <b>internships</b>.
+        </p>
+      </div>
+    </section>
+
+    <!-- NEWS -->
+    <section id="news">
+      <h2>News</h2>
+      <div class="card">
+        <ul class="clean">
+          <li class="item">
+            <div>
+              <b>[2025-02-24]</b> Paper published in <i>PLoS Computational Biology</i>.
+              <span class="pill">publication</span>
+            </div>
+            <div class="meta">
+              <a href="https://doi.org/10.1101/2023.11.14.23298506" target="_blank" rel="noopener noreferrer">DOI</a>
+              <!-- Optionnel : ajoute code / data -->
+            </div>
+          </li>
+          <li class="item">
+            <div>
+              <b>[2024-09]</b> Research fellow in epidemiology, INRAE (France).
+              <span class="pill">position</span>
+            </div>
+            <div class="meta">Sept. 2024 – Sept. 2026.</div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PUBLICATIONS -->
+    <section id="publications">
+      <h2>Publications</h2>
+
+      <div class="grid cols-2">
+        <div class="card">
+          <p class="kicker">Peer-reviewed</p>
+          <ul class="clean">
+            <li class="item">
+              <div>
+                <b>Henriot P., El Kassas M., Anwar W., Abdo S., Jean K., Temime L.</b> —
+                <a href="https://doi.org/10.1101/2023.11.14.23298506" target="_blank" rel="noopener noreferrer">
+                  An agent-based model to simulate the transmission dynamics of bloodborne pathogens within hospitals
+                </a>
+                (2025). <i>PLoS Computational Biology</i>.
+                <span class="pill">update status</span>
+              </div>
+              <div class="meta">Tip: remplace “In Press” par vol/issue/eID si tu veux une référence complète.</div>
+            </li>
+
+            <li class="item">
+              <div>
+                <b>Henriot P., Buelow E., Petit F., Ploy M.C., Dagot C., Opatowski L.</b> —
+                <a href="https://doi.org/10.1016/j.scitotenv.2024.171643" target="_blank" rel="noopener noreferrer">
+                  Modelling the impact of urban and hospital wastewaters eco-exposomes on the antibiotic-resistance dynamics
+                </a>
+                (2024). <i>Science of the Total Environment</i>.
+              </div>
+            </li>
+
+            <li class="item">
+              <div>
+                <b>Kovacevic A., Smith D.R.M., Rahbé E., Novelli S., Henriot P., et al.</b> —
+                COVID-19 pandemic responses impact the spread of antibiotic-resistant bacteria (2024).
+                <a href="https://doi.org/10.7554/eLife.85701" target="_blank" rel="noopener noreferrer">(link)</a>
+              </div>
+            </li>
+
+            <li class="item">
+              <div>
+                <b>Henriot P., Anwar W. A., El Gaafary M., Abdo S., Rafik M., Hussein W. M., Sos D., Magdy I., Jean K., Temime L.</b> —
+                Preventing iatrogenic HCV infection: A quantitative risk assessment based on observational data in an Egyptian hospital (2024).
+                <a href="https://doi.org/10.1371/journal.pgph.0002821" target="_blank" rel="noopener noreferrer">(link)</a>
+              </div>
+            </li>
+
+            <li class="item">
+              <div>
+                <b>Smith, D.R.M., Jijón, S., Oodally, A., Shirreff, G., Aït Bouziad, K., Ante-Testard, P.A., Bastard, J., Bouziri, H., Daouda, O.S., Duchemin, T., Godon-Rensonnet, A.-S., Henriot, P., Houri, Y., Neynaud, H., Perozziello, A., Thonon, F., Crépey, P., Dab, W., Jean, K., Temime, L.</b> —
+                Sick leave due to COVID-19 during the first pandemic wave in France, 2020 (2022).
+                <a href="https://doi.org/10.1136/oemed-2022-108451" target="_blank" rel="noopener noreferrer">(link)</a>
+              </div>
+            </li>
+
+            <li class="item">
+              <div>
+                <b>Henriot, P., Castry, M., Luong Nguyen, L.B., Shimakawa, Y., Jean, K., Temime, L.</b> —
+                Meta-analysis: risk of hepatitis C virus infection associated with hospital-based invasive procedures (2022).
+                <a href="https://doi.org/10.1111/apt.17106" target="_blank" rel="noopener noreferrer">(link)</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <p class="kicker">Preprints</p>
+          <ul class="clean">
+            <li class="item">
+              <div>
+                <b>Moutet L., Leclerc Q., Layan M., Ait Bouziad K., Dab W., Henriot P., et al.</b> —
+                <a href="https://www.medrxiv.org/content/10.1101/2024.07.18.24310632v1" target="_blank" rel="noopener noreferrer">
+                  Teleworking and health in an epidemic context: contrasting the infectious and non-communicable diseases perspectives
+                </a>
+                (2024). <i>medRxiv</i>.
+              </div>
+            </li>
+          </ul>
+
+          <p class="kicker" style="margin-top:16px;">HAL list (embedded)</p>
+          <div class="archivesouvertes_embed" width="640" height="360"
+            data-url="https://haltools.archives-ouvertes.fr/Public/afficheRequetePubli.php?idHal=+paul-henriot&amp;CB_ref_biblio=oui&amp;langue=Francais&amp;tri_exp=annee_publi&amp;tri_exp2=typdoc&amp;tri_exp3=auteur_exp&amp;ordre_aff=AT&amp;CB_rubriqueDiv=oui&amp;Fen=Aff&amp">
+          </div>
+          <noscript>
+            <p class="meta" style="margin:10px 0 0;">
+              La liste HAL nécessite JavaScript. Voir aussi via
+              <a href="https://hal.science/search/index/?q=paul%20henriot" target="_blank" rel="noopener noreferrer">HAL</a>.
+            </p>
+          </noscript>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOFTWARE -->
+    <section id="software">
+      <h2>Selected projects / Software</h2>
+      <div class="card">
+        <ul class="clean">
+          <li class="item">
+            <div>
+              <a href="https://github.com/phenriot/BloodPaTH" target="_blank" rel="noopener noreferrer"><b>BloodPaTH</b></a>
+              — Bloodborne Pathogens Transmission in Hospitals.
+            </div>
+            <div class="meta">R package · agent-based modelling · hospital transmission.</div>
+          </li>
+          <!-- Ajoute 1–2 projets si tu veux -->
+        </ul>
+      </div>
+    </section>
+
+    <!-- TALKS -->
+    <section id="talks">
+      <h2>Talks / Teaching / Supervision</h2>
+      <div class="card">
+        <ul class="clean">
+          <li class="item">
+            <div><b>Talk</b> — (add one highlight if you want)</div>
+            <div class="meta">You can list invited talks, seminars, posters, teaching, supervision.</div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
     <!-- CONTACT -->
     <section id="contact">
       <h2>Contact</h2>
@@ -301,149 +369,6 @@
       </div>
     </section>
 
-    <!-- RESEARCH -->
-    <section id="research">
-      <h2>Research Interest</h2>
-      <div class="card">
-        <p style="margin:0;">
-          My research is mainly focused on the use of mathematical tools to better understand the transmission of pathogens in humans
-          and animals as well as their diffusion in the environment with a One Health approach.
-        </p>
-      </div>
-    </section>
-
-    <!-- CV -->
-    <section id="cv">
-      <h2>Curriculum Vitae</h2>
-
-      <div class="grid cols-2">
-        <div class="card">
-          <p class="kicker">Education</p>
-          <ul class="clean">
-            <li class="item"><b>2020–2023:</b> PhD in Public Health, Conservatoire national des arts et métiers – HESAM Université, Paris, France</li>
-            <li class="item"><b>2017–2019:</b> Master’s degree in ecological modelling, Université de Rennes 1, Rennes, France</li>
-            <li class="item"><b>2014–2017:</b> Bachelor’s degree in economic analysis, Université Paris II – Panthéon-Assas, Paris, France</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <p class="kicker">Research experience</p>
-          <ul class="clean">
-            <li class="item"><b>Sept. 2024 – Sept. 2026:</b> Research fellow in epidemiology, INRAE, France</li>
-            <li class="item"><b>Sept. 2020 – Nov. 2023:</b> PhD in Public Health, Conservatoire national des arts et métiers, Paris, France</li>
-            <li class="item"><b>Sept. 2019 – Sept. 2020:</b> Modelling engineer, Inserm – Institut Pasteur, Paris, France</li>
-            <li class="item"><b>Jan. 2019 – June 2019:</b> Research intern, Conservatoire national des arts et métiers, Paris, France</li>
-            <li class="item"><b>April 2018 – May 2018:</b> Research intern, Conservatoire national des arts et métiers, Paris, France</li>
-          </ul>
-
-          <p class="meta" style="margin:10px 0 0;">
-            <a href="English_CV.pdf" target="_blank" rel="noopener noreferrer">Download detailed CV</a>
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- PUBLICATIONS -->
-    <section id="publications">
-      <h2>Publications</h2>
-
-      <div class="card" style="margin-bottom:12px;">
-        <p class="kicker">HAL list (embedded)</p>
-        <div class="archivesouvertes_embed" width="640" height="360"
-          data-url="https://haltools.archives-ouvertes.fr/Public/afficheRequetePubli.php?idHal=+paul-henriot&amp;CB_ref_biblio=oui&amp;langue=Francais&amp;tri_exp=annee_publi&amp;tri_exp2=typdoc&amp;tri_exp3=auteur_exp&amp;ordre_aff=AT&amp;CB_rubriqueDiv=oui&amp;Fen=Aff&amp">
-        </div>
-        <noscript>
-          <p class="meta" style="margin:10px 0 0;">
-            La liste HAL nécessite JavaScript. Voir aussi via
-            <a href="https://hal.science/search/index/?q=paul%20henriot" target="_blank" rel="noopener noreferrer">HAL</a>.
-          </p>
-        </noscript>
-      </div>
-
-      <div class="card">
-        <ul class="clean">
-          <li class="item">
-            <div>
-              <b>Henriot P., El Kassas M., Anwar W., Abdo S., Jean K., Temime L.</b> —
-              <a href="https://doi.org/10.1101/2023.11.14.23298506" target="_blank" rel="noopener noreferrer">
-                An agent-based model to simulate the transmission dynamics of bloodborne pathogens within hospitals
-              </a>
-              (2025). PLoS Computational Biology.
-              <span class="pill">update status</span>
-            </div>
-            <div class="meta">Tip: remplace “In Press” par vol/issue/eID si tu veux une réf complète.</div>
-          </li>
-
-          <li class="item">
-            <div>
-              <b>Moutet L., Leclerc Q., Layan M., Ait Bouziad K., Dab W., Henriot P., et al.</b> —
-              <a href="https://www.medrxiv.org/content/10.1101/2024.07.18.24310632v1" target="_blank" rel="noopener noreferrer">
-                Teleworking and health in an epidemic context: contrasting the infectious and non-communicable diseases perspectives
-              </a>
-              (2024). medRxiv.
-            </div>
-          </li>
-
-          <li class="item">
-            <div>
-              <b>Henriot P., Buelow E., Petit F., Ploy M.C., Dagot C., Opatowski L.</b> —
-              <a href="https://doi.org/10.1016/j.scitotenv.2024.171643" target="_blank" rel="noopener noreferrer">
-                Modelling the impact of urban and hospital wastewaters eco-exposomes on the antibiotic-resistance dynamics
-              </a>
-              (2024). Science of the Total Environment.
-            </div>
-          </li>
-
-          <li class="item">
-            <div>
-              <b>Kovacevic A., Smith D.R.M., Rahbé E., Novelli S., Henriot P., et al.</b> —
-              COVID-19 pandemic responses impact the spread of antibiotic-resistant bacteria (2024).
-              <a href="https://doi.org/10.7554/eLife.85701" target="_blank" rel="noopener noreferrer">(link)</a>
-            </div>
-          </li>
-
-          <li class="item">
-            <div>
-              <b>Henriot P., Anwar W. A., El Gaafary M., Abdo S., Rafik M., Hussein W. M., Sos D., Magdy I., Jean K., Temime L.</b> —
-              Preventing iatrogenic HCV infection: A quantitative risk assessment based on observational data in an Egyptian hospital (2024).
-              <a href="https://doi.org/10.1371/journal.pgph.0002821" target="_blank" rel="noopener noreferrer">(link)</a>
-            </div>
-          </li>
-
-          <li class="item">
-            <div>
-              <b>Smith, D.R.M., Jijón, S., Oodally, A., Shirreff, G., Aït Bouziad, K., Ante-Testard, P.A., Bastard, J., Bouziri, H., Daouda, O.S., Duchemin, T., Godon-Rensonnet, A.-S., Henriot, P., Houri, Y., Neynaud, H., Perozziello, A., Thonon, F., Crépey, P., Dab, W., Jean, K., Temime, L.</b> —
-              Sick leave due to COVID-19 during the first pandemic wave in France, 2020 (2022).
-              <a href="https://doi.org/10.1136/oemed-2022-108451" target="_blank" rel="noopener noreferrer">(link)</a>
-            </div>
-          </li>
-
-          <li class="item">
-            <div>
-              <b>Henriot, P., Castry, M., Luong Nguyen, L.B., Shimakawa, Y., Jean, K., Temime, L.</b> —
-              Meta-analysis: risk of hepatitis C virus infection associated with hospital-based invasive procedures (2022).
-              <a href="https://doi.org/10.1111/apt.17106" target="_blank" rel="noopener noreferrer">(link)</a>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- SOFTWARE -->
-    <section id="software">
-      <h2>R Packages</h2>
-      <div class="card">
-        <ul class="clean">
-          <li class="item">
-            <div>
-              <a href="https://github.com/phenriot/BloodPaTH" target="_blank" rel="noopener noreferrer"><b>BloodPaTH</b></a>
-              — Bloodborne Pathogens Transmission in Hospitals.
-            </div>
-          </li>
-        </ul>
-      </div>
-    </section>
-
     <footer>
       <div>© <span id="year"></span> Paul Henriot</div>
       <div><a href="#top" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;">Back to top</a></div>
@@ -451,10 +376,8 @@
   </main>
 
   <script>
-    // Année auto
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Obfuscation email simple (anti-spam)
     (function () {
       const user = "paul.henriot";
       const domain = "protonmail.com";
