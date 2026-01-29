@@ -1,367 +1,211 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Paul Henriot — Academic page</title>
-  <meta name="description" content="Researcher in computational biology / data science. Publications, software, talks, and contact." />
+  <title>Paul Henriot — Page professionnelle</title>
+  <meta name="description" content="Paul Henriot — chercheur en épidémiologie / modélisation. Publications, CV, logiciels, contact." />
+  <link rel="canonical" href="https://phenriot.github.io/" />
 
-  <!-- Favicon (optionnel) -->
-  <!-- <link rel="icon" href="/favicon.ico"> -->
+  <link rel="stylesheet" href="main.css" />
 
   <style>
-    :root{
-      --bg:#ffffff;
-      --text:#111827;     /* slate-900 */
-      --muted:#4b5563;    /* slate-600 */
-      --link:#0f766e;     /* teal-700 */
-      --border:#e5e7eb;   /* gray-200 */
-      --card:#f9fafb;     /* gray-50 */
-      --code:#0b1020;
+    /* Inversion des couleurs des icônes */
+    nav img {
+      filter: invert(1);
+      transition: filter 0.3s ease-in-out;
     }
-    @media (prefers-color-scheme: dark){
-      :root{
-        --bg:#0b1020;
-        --text:#e5e7eb;
-        --muted:#9ca3af;
-        --link:#5eead4;
-        --border:#1f2937;
-        --card:#0f172a;
-        --code:#0b1020;
-      }
-    }
+    nav img:hover { filter: invert(0); }
 
-    html, body { height: 100%; }
-    body{
-      margin:0;
-      background:var(--bg);
-      color:var(--text);
-      font: 16px/1.55 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-    }
-    a{ color:var(--link); text-decoration:none; }
-    a:hover{ text-decoration:underline; }
+    /* Empêche l'inversion pour le drapeau */
+    .language-switch img { filter: none; }
 
-    .wrap{
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 32px 20px 64px;
+    /* Position du drapeau */
+    .language-switch {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 10;
     }
-    header{
-      display:flex;
-      justify-content:space-between;
-      align-items:flex-start;
-      gap:24px;
-      flex-wrap:wrap;
-      padding-bottom: 16px;
-      border-bottom:1px solid var(--border);
-      margin-bottom: 24px;
-    }
-    .id h1{
-      margin:0 0 6px 0;
-      font-size: 28px;
-      letter-spacing:-0.02em;
-    }
-    .id .tagline{
-      margin:0;
-      color:var(--muted);
-      max-width: 56ch;
-    }
-    .links{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-    }
-    .chip{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:6px 10px;
-      border:1px solid var(--border);
-      border-radius: 999px;
-      background: transparent;
-      white-space:nowrap;
-      font-size: 14px;
-    }
-
-    nav{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      margin: 12px 0 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
-    nav a{ color: var(--muted); }
-    nav a:hover{ color: var(--link); }
-
-    section{
-      margin-top: 28px;
-    }
-    h2{
-      font-size: 18px;
-      margin: 0 0 10px 0;
-    }
-    .card{
-      background:var(--card);
-      border:1px solid var(--border);
-      border-radius: 14px;
-      padding: 14px 14px;
-    }
-    .grid{
-      display:grid;
-      gap:12px;
-    }
-    @media (min-width: 720px){
-      .grid.cols-2{ grid-template-columns: 1fr 1fr; }
-    }
-
-    ul.clean{
-      list-style:none;
-      padding-left:0;
-      margin:0;
-    }
-    li.item{
-      padding: 10px 0;
-      border-bottom: 1px solid var(--border);
-    }
-    li.item:last-child{ border-bottom:0; }
-
-    .meta{
-      color:var(--muted);
-      font-size: 14px;
-      margin-top: 2px;
-    }
-    .small{
-      font-size: 14px;
-      color: var(--muted);
-    }
-    .kicker{
-      font-size: 13px;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      margin: 0 0 8px 0;
-    }
-    .pill{
-      display:inline-block;
-      font-size: 12px;
-      padding: 2px 8px;
-      border:1px solid var(--border);
-      border-radius: 999px;
-      color: var(--muted);
-      margin-left: 8px;
-      vertical-align: 1px;
-    }
-
-    footer{
-      margin-top: 36px;
-      padding-top: 16px;
-      border-top:1px solid var(--border);
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    /* Email obfuscation hint style */
-    code{
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      background: rgba(125,125,125,.12);
-      padding: 2px 6px;
-      border-radius: 8px;
+    .language-switch img {
+      width: 30px;
+      height: auto;
     }
   </style>
 </head>
 
 <body>
-  <main class="wrap">
-    <header>
-      <div class="id">
-        <h1>Paul Henriot</h1>
-        <p class="tagline">
-          Researcher in <strong>computational biology</strong> / <strong>data science</strong>.
-          <!-- Remplace/ajuste la phrase ci-dessus selon ton pitch -->
-        </p>
+<header>
+  <div class="profile">
+    <img src="profile.jpg" alt="Photo de Paul Henriot" class="profile-image" />
+    <h1>Paul Henriot</h1>
+  </div>
 
-        <nav aria-label="Navigation">
-          <a href="#about">About</a>
-          <a href="#news">News</a>
-          <a href="#publications">Publications</a>
-          <a href="#software">Software</a>
-          <a href="#talks">Talks/Teaching</a>
-          <a href="#contact">Contact</a>
-        </nav>
-      </div>
+  <nav aria-label="Liens externes">
+    <a href="index_fr.html" class="language-switch" title="Version française">
+      <img src="french_flag.png" alt="Français" />
+    </a>
 
-      <div class="links" aria-label="Links">
-        <!-- Remplace les href par tes liens -->
-        <a class="chip" href="CV.pdf">CV (PDF)</a>
-        <a class="chip" href="https://scholar.google.com/" target="_blank" rel="noopener">Google Scholar</a>
-        <a class="chip" href="https://orcid.org/" target="_blank" rel="noopener">ORCID</a>
-        <a class="chip" href="https://github.com/phenriot" target="_blank" rel="noopener">GitHub</a>
-        <a class="chip" href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="chip" href="https://x.com/" target="_blank" rel="noopener">X / Twitter</a>
-      </div>
-    </header>
+    <a href="https://www.researchgate.net/profile/Paul-Henriot" target="_blank" rel="noopener noreferrer" title="ResearchGate">
+      <img src="researchgate.jpg" alt="ResearchGate" />
+    </a>
 
-    <!-- ABOUT -->
-    <section id="about">
-      <h2>About</h2>
-      <div class="card">
-        <p style="margin:0 0 10px 0;">
-          <!-- Mets ici 3–5 lignes concrètes : thème, méthodes, données, applications -->
-          I work on <strong>(topic A)</strong>, <strong>(topic B)</strong>, and <strong>(topic C)</strong>,
-          with an emphasis on <strong>(methods)</strong> and <strong>(applications)</strong>.
-        </p>
-        <p class="small" style="margin:0;">
-          Open to: <strong>collaborations</strong> / <strong>co-supervision</strong> / <strong>internships</strong>.
-          <!-- Optionnel : indique exactement ce que tu veux attirer -->
-        </p>
-      </div>
-    </section>
+    <a href="https://orcid.org/0000-0002-9410-0867" target="_blank" rel="noopener noreferrer" title="ORCID">
+      <img src="orcid.jpg" alt="ORCID" />
+    </a>
 
-    <!-- NEWS (optionnel mais utile) -->
-    <section id="news">
-      <h2>News</h2>
-      <div class="card">
-        <ul class="clean">
-          <li class="item">
-            <div>
-              <strong>[2025-02-24]</strong> Paper published in <em>PLoS Computational Biology</em>.
-              <span class="pill">publication</span>
-            </div>
-            <div class="meta">
-              <!-- Mets ici DOI / lien -->
-              <a href="https://doi.org/XXXXXXXX" target="_blank" rel="noopener">DOI</a>
-              · <a href="https://github.com/XXXX" target="_blank" rel="noopener">Code</a>
-            </div>
-          </li>
-          <!-- Ajoute 2–5 lignes max, sinon supprime la section -->
-        </ul>
-      </div>
-    </section>
+    <a href="https://scholar.google.com/citations?user=Zy69Pt4AAAAJ&hl=fr" target="_blank" rel="noopener noreferrer" title="Google Scholar">
+      <img src="google-scholar.jpg" alt="Google Scholar" />
+    </a>
 
-    <!-- PUBLICATIONS -->
-    <section id="publications">
-      <h2>Publications</h2>
+    <a href="https://twitter.com/HenriotPaul" target="_blank" rel="noopener noreferrer" title="X (Twitter)">
+      <img src="twitter.jpg" alt="X (Twitter)" />
+    </a>
 
-      <div class="grid cols-2">
-        <div class="card">
-          <p class="kicker">Peer-reviewed</p>
-          <ul class="clean">
-            <li class="item">
-              <div>
-                <strong>Title of the paper</strong> — Author A, Author B, <strong>Henriot P.</strong> (2025)
-              </div>
-              <div class="meta">
-                <em>Journal name</em>, volume(issue): pages/eID.
-                · <a href="https://doi.org/XXXXXXXX" target="_blank" rel="noopener">DOI</a>
-                · <a href="paper.pdf">PDF</a>
-                · <a href="https://github.com/XXXX" target="_blank" rel="noopener">Code</a>
-              </div>
-            </li>
+    <a href="https://github.com/phenriot" target="_blank" rel="noopener noreferrer" title="GitHub">
+      <img src="github-logo.jpg" alt="GitHub" />
+    </a>
+  </nav>
+</header>
 
-            <!-- Duplique les <li> -->
-          </ul>
-        </div>
+<main>
+  <section class="contact">
+    <h2>Contact</h2>
 
-        <div class="card">
-          <p class="kicker">Preprints</p>
-          <ul class="clean">
-            <li class="item">
-              <div>
-                <strong>Title of the preprint</strong> — Author A, <strong>Henriot P.</strong> (2024)
-              </div>
-              <div class="meta">
-                bioRxiv/medRxiv/arXiv.
-                · <a href="https://doi.org/XXXXXXXX" target="_blank" rel="noopener">Link</a>
-                · <a href="https://github.com/XXXX" target="_blank" rel="noopener">Code</a>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
+    <!-- Obfuscation anti-spam : le lien mailto est construit en JS -->
+    <p>Email:
+      <a id="email-link" href="#" aria-label="Envoyer un email">paul.henriot [at] protonmail [dot] com</a>
+    </p>
+  </section>
 
-      <p class="small" style="margin-top:10px;">
-        Tip: garde 8–15 entrées max ici, et renvoie vers Google Scholar pour le reste.
+  <section class="research-interest">
+    <h2>Research Interest</h2>
+    <p>
+      My research is mainly focused on the use of mathematical tools to better understand the transmission of pathogens
+      in humans and animals as well as their diffusion in the environment with a One Health approach.
+    </p>
+  </section>
+
+  <section class="cv">
+    <h2>Curriculum Vitae</h2>
+
+    <h3>Education</h3>
+    <ul>
+      <li><b>2020-2023:</b> PhD in Public Health, Conservatoire national des arts et métiers - HESAM Université, Paris, France</li>
+      <li><b>2017-2019:</b> Master's degree in ecological modelling, Université de Rennes 1, Rennes, France</li>
+      <li><b>2014-2017:</b> Bachelor's degree in economic analysis, Université Paris II - Panthéon-Assas, Paris, France</li>
+    </ul>
+
+    <h3>Research Experience</h3>
+    <ul>
+      <li><b>Sept. 2024 - Sept. 2026:</b> Research fellow in epidemiology, INRAE, France</li>
+      <li><b>Sept. 2020 - Nov. 2023:</b> PhD in Public Health, Conservatoire national des arts et métiers, Paris, France</li>
+      <li><b>Sept. 2019 - Sept. 2020:</b> Modelling engineer, Inserm - Institut Pasteur, Paris, France</li>
+      <li><b>Jan. 2019 - June 2019:</b> Research intern, Conservatoire national des arts et métiers, Paris, France</li>
+      <li><b>April 2018 - May 2018:</b> Research intern, Conservatoire national des arts et métiers, Paris, France</li>
+    </ul>
+
+    <a href="English_CV.pdf" class="download-cv" target="_blank" rel="noopener noreferrer">Download detailed CV</a>
+  </section>
+
+  <section class="publications">
+    <h2>Publications</h2>
+
+    <!-- Embed HAL (si ton script HAL est bien inclus ailleurs) -->
+    <div class="archivesouvertes_embed" width="640" height="360"
+      data-url="https://haltools.archives-ouvertes.fr/Public/afficheRequetePubli.php?idHal=+paul-henriot&amp;CB_ref_biblio=oui&amp;langue=Francais&amp;tri_exp=annee_publi&amp;tri_exp2=typdoc&amp;tri_exp3=auteur_exp&amp;ordre_aff=AT&amp;CB_rubriqueDiv=oui&amp;Fen=Aff&amp">
+    </div>
+    <noscript>
+      <p>
+        La liste HAL nécessite JavaScript. Vous pouvez aussi consulter vos publications via
+        <a href="https://hal.science/search/index/?q=paul%20henriot" target="_blank" rel="noopener noreferrer">HAL</a>.
       </p>
-    </section>
+    </noscript>
 
-    <!-- SOFTWARE / PROJECTS -->
-    <section id="software">
-      <h2>Selected projects / Software</h2>
-      <div class="card">
-        <ul class="clean">
-          <li class="item">
-            <div>
-              <strong>BloodPaTH</strong> — one-line: what it does and for whom.
-            </div>
-            <div class="meta">
-              2 lines max: method/stack (e.g., Python/R, Snakemake, PyTorch…), and what’s novel.
-              · <a href="https://github.com/phenriot/BloodPaTH" target="_blank" rel="noopener">GitHub</a>
-              · <a href="https://doi.org/XXXXXXXX" target="_blank" rel="noopener">Paper/DOI</a>
-            </div>
-          </li>
+    <ul>
+      <li>
+        <b>Henriot P., El Kassas M., Anwar W., Abdo S., Jean K., Temime L.</b> —
+        <a href="https://doi.org/10.1101/2023.11.14.23298506" target="_blank" rel="noopener noreferrer">
+          An agent-based model to simulate the transmission dynamics of bloodborne pathogens within hospitals
+        </a>
+        (2025). PLoS Computational Biology.
+        <!-- Si tu veux : remplace par la réf complète (vol/issue/eID) -->
+      </li>
 
-          <li class="item">
-            <div><strong>Project 2</strong> — short “problem → approach → result”.</div>
-            <div class="meta">
-              <a href="https://github.com/XXXX" target="_blank" rel="noopener">Repo</a>
-              · <a href="https://example.com" target="_blank" rel="noopener">Demo</a>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </section>
+      <li>
+        <b>Moutet L., Leclerc Q., Layan M., Ait Bouziad K., Dab W., Henriot P., et al.</b> —
+        <a href="https://www.medrxiv.org/content/10.1101/2024.07.18.24310632v1" target="_blank" rel="noopener noreferrer">
+          Teleworking and health in an epidemic context: contrasting the infectious and non-communicable diseases perspectives
+        </a>
+        (2024). medRxiv.
+      </li>
 
-    <!-- TALKS / TEACHING -->
-    <section id="talks">
-      <h2>Talks / Teaching / Supervision</h2>
-      <div class="card">
-        <ul class="clean">
-          <li class="item">
-            <div><strong>Invited talk</strong> — Event, City (2025)</div>
-            <div class="meta">
-              <a href="slides.pdf">Slides</a> · <a href="https://youtu.be/XXXX" target="_blank" rel="noopener">Video</a>
-            </div>
-          </li>
-          <li class="item">
-            <div><strong>Teaching</strong> — Course name, level (2024–2025)</div>
-            <div class="meta">Topics: …</div>
-          </li>
-        </ul>
-      </div>
-    </section>
+      <li>
+        <b>Henriot P., Buelow E., Petit F., Ploy M.C., Dagot C., Opatowski L.</b> —
+        <a href="https://doi.org/10.1016/j.scitotenv.2024.171643" target="_blank" rel="noopener noreferrer">
+          Modelling the impact of urban and hospital wastewaters eco-exposomes on the antibiotic-resistance dynamics
+        </a>
+        (2024). Science of the Total Environment.
+      </li>
 
-    <!-- CONTACT -->
-    <section id="contact">
-      <h2>Contact</h2>
-      <div class="card">
-        <p style="margin:0 0 10px 0;">
-          <!-- Option 1 : email obfusqué en texte -->
-          Email: <code>paul[dot]henriot[at]example[dot]org</code><br/>
-          Affiliation: INRAE — (City, Country)
-        </p>
+      <li>
+        <b>Kovacevic A., Smith D.R.M., Rahbé E., Novelli S., Henriot P., et al.</b> —
+        COVID-19 pandemic responses impact the spread of antibiotic-resistant bacteria (2024).
+        <a href="https://doi.org/10.7554/eLife.85701" target="_blank" rel="noopener noreferrer">(link)</a>
+      </li>
 
-        <p class="small" style="margin:0;">
-          Also reachable via: <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a> or
-          <a href="https://github.com/phenriot" target="_blank" rel="noopener">GitHub</a>.
-        </p>
-      </div>
-    </section>
+      <li>
+        <b>Henriot P., Anwar W. A., El Gaafary M., Abdo S., Rafik M., Hussein W. M., Sos D., Magdy I., Jean K., Temime L.</b> —
+        Preventing iatrogenic HCV infection: A quantitative risk assessment based on observational data in an Egyptian hospital (2024).
+        <a href="https://doi.org/10.1371/journal.pgph.0002821" target="_blank" rel="noopener noreferrer">(link)</a>
+      </li>
 
-    <footer>
-      <div>
-        © <span id="y"></span> Paul Henriot · Built with plain HTML/CSS ·
-        <a href="#top" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;">Back to top</a>
-      </div>
-    </footer>
-  </main>
+      <li>
+        <b>Smith, D.R.M., Jijón, S., Oodally, A., Shirreff, G., Aït Bouziad, K., Ante-Testard, P.A., Bastard, J., Bouziri, H., Daouda, O.S., Duchemin, T., Godon-Rensonnet, A.-S., Henriot, P., Houri, Y., Neynaud, H., Perozziello, A., Thonon, F., Crépey, P., Dab, W., Jean, K., Temime, L.</b> —
+        Sick leave due to COVID-19 during the first pandemic wave in France, 2020 (2022).
+        <a href="https://doi.org/10.1136/oemed-2022-108451" target="_blank" rel="noopener noreferrer">(link)</a>
+      </li>
 
-  <script>
-    // année auto
-    document.getElementById("y").textContent = new Date().getFull_attach toISOString? 0 : new Date().getFullYear();
-  </script>
+      <li>
+        <b>Henriot, P., Castry, M., Luong Nguyen, L.B., Shimakawa, Y., Jean, K., Temime, L.</b> —
+        Meta-analysis: risk of hepatitis C virus infection associated with hospital-based invasive procedures (2022).
+        <a href="https://doi.org/10.1111/apt.17106" target="_blank" rel="noopener noreferrer">(link)</a>
+      </li>
+    </ul>
+  </section>
+
+  <section class="r-packages">
+    <h2>R Packages</h2>
+    <ul>
+      <li>
+        <a href="https://github.com/phenriot/BloodPaTH" target="_blank" rel="noopener noreferrer"><b>BloodPaTH</b></a>
+        — Bloodborne Pathogens Transmission in Hospitals.
+      </li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; <span id="year"></span> Paul Henriot. All rights reserved.</p>
+</footer>
+
+<script>
+  // Année auto
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Obfuscation email simple (anti-spam)
+  (function () {
+    const user = "paul.henriot";
+    const domain = "protonmail.com";
+    const a = document.getElementById("email-link");
+    const addr = user + "@" + domain;
+    a.textContent = addr;
+    a.href = "mailto:" + addr;
+    a.target = "_blank";
+    a.rel = "noopener noreferrer";
+  })();
+</script>
+
 </body>
 </html>
-
